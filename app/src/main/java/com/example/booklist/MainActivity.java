@@ -34,7 +34,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     RecyclerView recyclerView;
     ArrayList<String> title = new ArrayList<>();
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HelperAdapter helperAdapter = new HelperAdapter(title, author, MainActivity.this);
+        HelperAdapter helperAdapter = new HelperAdapter(title, author, MainActivity.this, this);
         recyclerView.setAdapter(helperAdapter);
     }
 
@@ -80,4 +80,12 @@ public class MainActivity extends AppCompatActivity {
         return json;
     }
 
+    public void onItemClick(int position) {
+        Intent intent = new Intent(MainActivity.this, ElementContent.class);
+
+        intent.putExtra("TITLE", title.get(position));
+        intent.putExtra("AUTHOR", author.get(position));
+
+        startActivity(intent);
+    }
 }
