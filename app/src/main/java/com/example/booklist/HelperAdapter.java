@@ -1,9 +1,11 @@
 package com.example.booklist;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,16 +18,13 @@ import java.util.ArrayList;
 public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.MyViewClass> {
     private final RecyclerViewInterface recyclerViewInterface;
 
-    ArrayList<String> title;
-    ArrayList<String> author;
+    ArrayList<Book> books;
     Context context;
 
-    public HelperAdapter(ArrayList<String> title, ArrayList<String> author, Context context,
-                         RecyclerViewInterface recyclerViewInterface) {
-        this.title = title;
-        this.author = author;
-        this.context = context;
+    public HelperAdapter(ArrayList<Book> books, Context context, RecyclerViewInterface recyclerViewInterface) {
         this.recyclerViewInterface = recyclerViewInterface;
+        this.books = books;
+        this.context = context;
     }
 
     @NonNull
@@ -38,21 +37,15 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.MyViewClas
 
     @Override
     public void onBindViewHolder(@NonNull MyViewClass myViewClass, int i) {
-        myViewClass.title.setText(title.get(i));
-        myViewClass.author.setText(author.get(i));
+        myViewClass.title.setText(books.get(i).getTitle());
+        myViewClass.author.setText(books.get(i).getAuthor());
         System.out.println(i);
-//        myViewClass.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(context, "Item Clicked", Toast.LENGTH_LONG).show();
-//            }
-//        });
     }
 
     @Override
     public int getItemCount() {
-        System.out.println(title.size());
-        return title.size();
+        System.out.println(books.size());
+        return books.size();
     }
 
     public class MyViewClass extends RecyclerView.ViewHolder {

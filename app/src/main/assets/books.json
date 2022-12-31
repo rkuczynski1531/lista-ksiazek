@@ -11,8 +11,17 @@
       "rating" : "8.1",
       "numberOfRatings" : "78479",
       "translator" : "Andrzej Polkowski",
-      "price" : "21.12",
-      "picture" : ""
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "21.12"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "harry"
     },
     {
       "id" : 1,
@@ -25,8 +34,17 @@
       "rating" : "7.9",
       "numberOfRatings" : "58693",
       "translator" : "Martyna M. Lemańczyk",
-      "price" : "17.83",
-      "picture" : ""
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "14.97"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "ksiaze"
     },
     {
       "id" : 2,
@@ -39,8 +57,17 @@
       "rating" : "7.4",
       "numberOfRatings" : "308",
       "translator" : "Krzysztof Jarosz, Magdalena Budzińska",
-      "price" : "22.52",
-      "picture" : "https://s.lubimyczytac.pl/upload/books/4992000/4992460/1021144-352x500.jpg"
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "21.78"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "lata"
     },
     {
       "id" : 3,
@@ -53,8 +80,17 @@
       "rating" : "8.4",
       "numberOfRatings" : "48430",
       "translator" : "brak danych",
-      "price" : "11.69",
-      "picture" : "https://s.lubimyczytac.pl/upload/books/5001000/5001198/958056-352x500.jpg"
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "5.87"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "mistrz"
     },
     {
       "id" : 4,
@@ -67,8 +103,17 @@
       "rating" : "8.2",
       "numberOfRatings" : "43566",
       "translator" : "Małgorzata Hesko-Kołodzińska, Piotr Budkiewicz",
-      "price" : "7.30",
-      "picture" : "https://s.lubimyczytac.pl/upload/books/4862000/4862898/690923-352x500.jpg"
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "6.90"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "igrzyska"
     },
     {
       "id" : 5,
@@ -81,64 +126,109 @@
       "rating" : "8.5",
       "numberOfRatings" : "43800",
       "translator" : "Andrzej Jankowski",
-      "price" : "21.12",
-      "picture" : ""
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "4.70"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "rok"
     },
     {
       "id" : 6,
-      "title" : "Harry Potter i Kamień Filozoficzny",
-      "author" : "J.K. Rowling",
-      "pages" : "328",
-      "released" : "1997-01-01",
-      "publishingHouse" : "Media Rodzina",
-      "genre" : "literatura młodzieżowa",
-      "rating" : "8.1",
-      "numberOfRatings" : "78479",
-      "translator" : "Andrzej Polkowski",
-      "price" : "21.12",
-      "picture" : ""
+      "title" : "Chołod",
+      "author" : "Szczepan Twardoch",
+      "pages" : "416",
+      "released" : "2022-10-26",
+      "publishingHouse" : "Wydawcnictwo Literackie",
+      "genre" : "literatura piękna",
+      "rating" : "7.4",
+      "numberOfRatings" : "571",
+      "translator" : "-",
+      "site":
+        {
+          "name": "TaniaKsiazka.pl",
+          "price": "30.12"
+        },
+      "similarBook":
+        {
+          "title": "Podobna ksiazka 1",
+          "author" : "autor 1"
+        },
+      "image" : "cholod"
     },
     {
       "id" : 7,
-      "title" : "Harry Potter i Kamień Filozoficzny",
-      "author" : "J.K. Rowling",
-      "pages" : "328",
-      "released" : "1997-01-01",
-      "publishingHouse" : "Media Rodzina",
-      "genre" : "literatura młodzieżowa",
-      "rating" : "8.1",
-      "numberOfRatings" : "78479",
-      "translator" : "Andrzej Polkowski",
-      "price" : "21.12",
-      "picture" : ""
+      "title" : "Gdzie śpiewają raki ",
+      "author" : "Delia Owens",
+      "pages" : "416",
+      "released" : "2018008-14",
+      "publishingHouse" : "Świat Książki",
+      "genre" : "literatura piekna",
+      "rating" : "7.9",
+      "numberOfRatings" : "13275",
+      "translator" : "Bohdan Maliborski",
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "27.43"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "raki"
     },
     {
       "id" : 8,
-      "title" : "Harry Potter i Kamień Filozoficzny",
-      "author" : "J.K. Rowling",
-      "pages" : "328",
-      "released" : "1997-01-01",
-      "publishingHouse" : "Media Rodzina",
-      "genre" : "literatura młodzieżowa",
-      "rating" : "8.1",
-      "numberOfRatings" : "78479",
-      "translator" : "Andrzej Polkowski",
-      "price" : "21.12",
-      "picture" : ""
+      "title" : "Zanim wystygnie kawa",
+      "author" : "Toshikazu Kawaguchi",
+      "pages" : "275",
+      "released" : "2019-09-19",
+      "publishingHouse" : "Relacja",
+      "genre" : "literatura piekna",
+      "rating" : "7.1",
+      "numberOfRatings" : "1334",
+      "translator" : "Joanna Dżdża",
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "25.70"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "kawa"
     },
     {
       "id" : 9,
-      "title" : "Harry Potter i Kamień Filozoficzny",
-      "author" : "J.K. Rowling",
-      "pages" : "328",
-      "released" : "1997-01-01",
-      "publishingHouse" : "Media Rodzina",
-      "genre" : "literatura młodzieżowa",
-      "rating" : "8.1",
-      "numberOfRatings" : "78479",
-      "translator" : "Andrzej Polkowski",
-      "price" : "21.12",
-      "picture" : ""
+      "title" : "Na Zachodzie bez zmian",
+      "author" : "Erich Maria Remarque",
+      "pages" : "192",
+      "released" : "1973-06-14",
+      "publishingHouse" : "Rebis",
+      "genre" : "literatura piękna",
+      "rating" : "8.0",
+      "numberOfRatings" : "6945",
+      "translator" : "Ryszard Wojnakowski",
+      "site":
+      {
+        "name": "TaniaKsiazka.pl",
+        "price": "20.02"
+      },
+      "similarBook":
+      {
+        "title": "Podobna ksiazka 1",
+        "author" : "autor 1"
+      },
+      "image" : "zachod"
     }
   ]
 }

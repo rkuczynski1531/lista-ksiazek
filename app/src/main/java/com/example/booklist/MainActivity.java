@@ -1,6 +1,10 @@
 package com.example.booklist;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -29,16 +33,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     RecyclerView recyclerView;
-    ArrayList<String> title = new ArrayList<>();
-    ArrayList<String> author = new ArrayList<>();
+    ArrayList<Book> books = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +59,40 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             JSONObject jsonObject = new JSONObject(JsonDataFromAsset());
             JSONArray jsonArray = jsonObject.getJSONArray("books");
             for (int i = 0; i < jsonArray.length(); i++) {
+                System.out.println(i);
                 JSONObject bookData = jsonArray.getJSONObject(i);
-                title.add(bookData.getString("title"));
-                author.add(bookData.getString("author"));
+                JSONObject siteJson = bookData.getJSONObject("site");
+                Site site = new Site(
+                        siteJson.getString("name"),
+                        siteJson.getDouble("price")
+                );
+
+                JSONObject similarBookJson = bookData.getJSONObject("similarBook");
+                SimilarBook similarBook = new SimilarBook(
+                        similarBookJson.getString("title"),
+                        similarBookJson.getString("author")
+                );
+
+                books.add(new Book(
+                        bookData.getInt("id"),
+                        bookData.getString("title"),
+                        bookData.getString("author"),
+                        bookData.getInt("pages"),
+                        bookData.getString("released"),
+                        bookData.getString("publishingHouse"),
+                        bookData.getString("genre"),
+                        bookData.getDouble("rating"),
+                        bookData.getInt("numberOfRatings"),
+                        bookData.getString("translator"),
+                        site,
+                        similarBook,
+                        bookData.getString("image")
+                ));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HelperAdapter helperAdapter = new HelperAdapter(title, author, MainActivity.this, this);
+        HelperAdapter helperAdapter = new HelperAdapter(books, MainActivity.this, this);
         recyclerView.setAdapter(helperAdapter);
     }
 
@@ -83,8 +115,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     public void onItemClick(int position) {
         Intent intent = new Intent(MainActivity.this, ElementContent.class);
 
-        intent.putExtra("TITLE", title.get(position));
-        intent.putExtra("AUTHOR", author.get(position));
+        intent.putExtra("BOOK", books.get(position));
 
         startActivity(intent);
     }

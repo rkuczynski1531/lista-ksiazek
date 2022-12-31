@@ -1,31 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="title"
-        android:textColor="#008000"
-        android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/author"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="124dp"
-        android:text="author"
-        android:textColor="#008000"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/title"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="title"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="author"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pages"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/released"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="released"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/publishingHouse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="publishingHouse"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="genre"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="rating"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/numberOfRatings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="numberOfRatings"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/translator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="translator"
+                android:textColor="#008000"
+                android:textSize="30sp" />
+
+            <!-- ExpandableTextView Container -->
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/expand_text_view"
+                expandableTextView:animDuration="100"
+                expandableTextView:maxCollapsedLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- simple text view -->
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#008000"
+                    android:textSize="30sp" />
+
+                <!-- expandable ImageButton -->
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent" />
+
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
