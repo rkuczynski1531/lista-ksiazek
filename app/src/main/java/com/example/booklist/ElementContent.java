@@ -28,36 +28,35 @@ public class ElementContent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.element_content);
         Book book = (Book) getIntent().getSerializableExtra("BOOK");
+        if (book != null) {
+            TextView titleTextView = findViewById(R.id.title);
+            TextView authorTextView = findViewById(R.id.author);
+            TextView pagesTextView = findViewById(R.id.pages);
+            TextView releasedTextView = findViewById(R.id.released);
+            TextView publishingHouseTextView = findViewById(R.id.publishingHouse);
+            TextView genreTextView = findViewById(R.id.genre);
+            TextView ratingTextView = findViewById(R.id.rating);
+            TextView numberOfRatingsTextView = findViewById(R.id.numberOfRatings);
+            TextView translatorTextView = findViewById(R.id.translator);
+            titleTextView.setText(book.getTitle());
+            authorTextView.setText(book.getAuthor());
+            pagesTextView.setText(String.valueOf(book.getPages()));
+            releasedTextView.setText(book.getReleased());
+            publishingHouseTextView.setText(book.getPublishingHouse());
+            genreTextView.setText(book.getGenre());
+            ratingTextView.setText(String.valueOf(book.getRating()));
+            numberOfRatingsTextView.setText(String.valueOf(book.getNumberOfRatings()));
+            translatorTextView.setText(book.getTranslator());
 
-        TextView titleTextView = findViewById(R.id.title);
-        TextView authorTextView = findViewById(R.id.author);
-        TextView pagesTextView = findViewById(R.id.pages);
-        TextView releasedTextView = findViewById(R.id.released);
-        TextView publishingHouseTextView = findViewById(R.id.publishingHouse);
-        TextView genreTextView = findViewById(R.id.genre);
-        TextView ratingTextView = findViewById(R.id.rating);
-        TextView numberOfRatingsTextView = findViewById(R.id.numberOfRatings);
-        TextView translatorTextView = findViewById(R.id.translator);
+            ImageView imgView = (ImageView) findViewById(R.id.image);
+            int drawableId = getResources().getIdentifier(book.getImage(), "drawable", getPackageName());
+            @SuppressLint("UseCompatLoadingForDrawables") Drawable drawable = getResources().getDrawable(drawableId);
+            imgView.setImageDrawable(drawable);
 
-        titleTextView.setText(book.getTitle());
-        authorTextView.setText(book.getAuthor());
-        pagesTextView.setText(String.valueOf(book.getPages()));
-        releasedTextView.setText(book.getReleased());
-        publishingHouseTextView.setText(book.getPublishingHouse());
-        genreTextView.setText(book.getGenre());
-        ratingTextView.setText(String.valueOf(book.getRating()));
-        numberOfRatingsTextView.setText(String.valueOf(book.getNumberOfRatings()));
-        translatorTextView.setText(book.getTranslator());
+            ExpandableTextView expTv = (ExpandableTextView) findViewById(R.id.expand_text_view).findViewById(R.id.expand_text_view);
 
-        ImageView imgView=(ImageView) findViewById(R.id.image);
-        int drawableId=getResources().getIdentifier(book.getImage(), "drawable", getPackageName());
-        @SuppressLint("UseCompatLoadingForDrawables") Drawable drawable  = getResources().getDrawable(drawableId);
-        imgView.setImageDrawable(drawable);
-
-        ExpandableTextView expTv = (ExpandableTextView) findViewById(R.id.expand_text_view).findViewById(R.id.expand_text_view);
-
-        expTv.setText("Tutaj kupisz \n" + book.getSite().getName()  + "\n" + book.getSite().getPrice());
-
+            expTv.setText("Tutaj kupisz \n" + book.getSite().getName() + "\n" + book.getSite().getPrice());
+        }
 
     }
 

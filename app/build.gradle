@@ -29,6 +29,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+    packagingOptions {
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/DEPENDENCIES'
+    }
 }
 
 dependencies {
@@ -40,6 +44,8 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.ms-square:expandableTextView:0.1.4'
+
+    implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
     implementation 'androidx.navigation:navigation-fragment:2.4.1'
     implementation 'androidx.navigation:navigation-ui:2.4.1'
     testImplementation 'junit:junit:4.13.2'
