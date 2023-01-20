@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ms.square.android.expandabletextview.ExpandableTextView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,12 +23,13 @@ import java.util.Set;
 
 public class ElementContent extends AppCompatActivity {
 
-
+    ImageView imgView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.element_content);
         Book book = (Book) getIntent().getSerializableExtra("BOOK");
+
         if (book != null) {
             TextView titleTextView = findViewById(R.id.title);
             TextView authorTextView = findViewById(R.id.author);
@@ -48,15 +50,23 @@ public class ElementContent extends AppCompatActivity {
             numberOfRatingsTextView.setText(String.valueOf(book.getNumberOfRatings()));
             translatorTextView.setText(book.getTranslator());
 
-            ImageView imgView = (ImageView) findViewById(R.id.image);
-            int drawableId = getResources().getIdentifier(book.getImage(), "drawable", getPackageName());
-            @SuppressLint("UseCompatLoadingForDrawables") Drawable drawable = getResources().getDrawable(drawableId);
-            imgView.setImageDrawable(drawable);
-
-            ExpandableTextView expTv = (ExpandableTextView) findViewById(R.id.expand_text_view).findViewById(R.id.expand_text_view);
+            imgView = (ImageView) findViewById(R.id.image);
+            loadImage(book.getImage());
+            ExpandableTextView expTv = (ExpandableTextView) findViewById(R.id.expandTextView1).findViewById(R.id.expand_text_view);
 
             expTv.setText("Tutaj kupisz \n" + book.getSite().getName() + "\n" + book.getSite().getPrice());
+
+            ExpandableTextView expTv2 = (ExpandableTextView) findViewById(R.id.expandTextView2).findViewById(R.id.expand_text_view);
+
+            expTv2.setText("Podobne książki \n" + book.getSimilarBook().getTitle() + "\n" + book.getSimilarBook().getAuthor());
         }
+
+    }
+
+    private void loadImage(String url) {
+        Picasso.get()
+                .load(url)
+                .into(imgView);
 
     }
 

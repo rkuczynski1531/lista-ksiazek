@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booklist.databinding.ActivityMainBinding;
+import com.squareup.picasso.Picasso;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -81,13 +82,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
                 @Override
                 public void run() {
                     try  {
-                        String json = null;
-                        String fileData = null;
+                        String json;
+                        String fileData;
                         JSONArray jsonArray = null;
                         if (isNetworkAvailable()) {
                             String requestURL = "https://my-json-server.typicode.com/rkuczynski1531/jsonServer/books/";
                             json = IOUtils.toString(new URL(requestURL), StandardCharsets.UTF_8);
                             jsonArray = new JSONArray(json);
+
                             String cacheFileName = "cachedBooks.json";
                             File file = new File(getCacheDir(), cacheFileName);
                             writeDataToFile(file, String.valueOf(jsonArray));
@@ -95,40 +97,40 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
                         File cacheFileDir = new File(getCacheDir(), "cachedBooks.json");
                         FileInputStream fileInputStream = new FileInputStream(cacheFileDir);
                         fileData = readDataFromFile(fileInputStream);
-                        System.out.println("filedata: " + fileData);
                         if (!isNetworkAvailable()) {
                             jsonArray = new JSONArray(fileData);
                         }
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            System.out.println(i);
-                            JSONObject bookData = jsonArray.getJSONObject(i);
-                            JSONObject siteJson = bookData.getJSONObject("site");
-                            Site site = new Site(
-                                    siteJson.getString("name"),
-                                    siteJson.getDouble("price")
-                            );
+                        if (jsonArray != null) {
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject bookData = jsonArray.getJSONObject(i);
+                                JSONObject siteJson = bookData.getJSONObject("site");
+                                Site site = new Site(
+                                        siteJson.getString("name"),
+                                        siteJson.getDouble("price")
+                                );
 
-                            JSONObject similarBookJson = bookData.getJSONObject("similarBook");
-                            SimilarBook similarBook = new SimilarBook(
-                                    similarBookJson.getString("title"),
-                                    similarBookJson.getString("author")
-                            );
+                                JSONObject similarBookJson = bookData.getJSONObject("similarBook");
+                                SimilarBook similarBook = new SimilarBook(
+                                        similarBookJson.getString("title"),
+                                        similarBookJson.getString("author")
+                                );
 
-                            books.add(new Book(
-                                    bookData.getInt("id"),
-                                    bookData.getString("title"),
-                                    bookData.getString("author"),
-                                    bookData.getInt("pages"),
-                                    bookData.getString("released"),
-                                    bookData.getString("publishingHouse"),
-                                    bookData.getString("genre"),
-                                    bookData.getDouble("rating"),
-                                    bookData.getInt("numberOfRatings"),
-                                    bookData.getString("translator"),
-                                    site,
-                                    similarBook,
-                                    bookData.getString("image")
-                            ));
+                                books.add(new Book(
+                                        bookData.getInt("id"),
+                                        bookData.getString("title"),
+                                        bookData.getString("author"),
+                                        bookData.getInt("pages"),
+                                        bookData.getString("released"),
+                                        bookData.getString("publishingHouse"),
+                                        bookData.getString("genre"),
+                                        bookData.getDouble("rating"),
+                                        bookData.getInt("numberOfRatings"),
+                                        bookData.getString("translator"),
+                                        site,
+                                        similarBook,
+                                        bookData.getString("image")
+                                ));
+                            }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -145,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         HelperAdapter helperAdapter = new HelperAdapter(books, MainActivity.this, this);
         recyclerView.setAdapter(helperAdapter);
     }
+
+
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
