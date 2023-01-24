@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.ThemedSpinnerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.MyViewClass> {
@@ -39,6 +41,7 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.MyViewClas
     public void onBindViewHolder(@NonNull MyViewClass myViewClass, int i) {
         myViewClass.title.setText(books.get(i).getTitle());
         myViewClass.author.setText(books.get(i).getAuthor());
+        Picasso.get().load(books.get(i).getImage()).into(myViewClass.image);
         System.out.println(i);
     }
 
@@ -51,12 +54,14 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.MyViewClas
     public class MyViewClass extends RecyclerView.ViewHolder {
         TextView title;
         TextView author;
+        ImageView image;
 
         public MyViewClass(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
-            title = (TextView) itemView.findViewById(R.id.title);
-            author = (TextView) itemView.findViewById(R.id.author);
+            title = itemView.findViewById(R.id.title);
+            author = itemView.findViewById(R.id.author);
+            image = itemView.findViewById(R.id.image);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

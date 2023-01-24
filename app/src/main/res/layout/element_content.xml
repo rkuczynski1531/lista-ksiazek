@@ -26,80 +26,98 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="150dp"
+                android:layout_height="200dp"/>
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="title"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="author"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="pages"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/released"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="released"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/publishingHouse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="publishingHouse"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/genre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="genre"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="rating"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/numberOfRatings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="numberOfRatings"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/translator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="translator"
-                android:textColor="#140a8c"
-                android:textSize="30sp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <include
                 android:id="@+id/expandTextView1"

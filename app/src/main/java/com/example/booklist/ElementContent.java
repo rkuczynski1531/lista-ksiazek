@@ -24,6 +24,7 @@ import java.util.Set;
 public class ElementContent extends AppCompatActivity {
 
     ImageView imgView;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +43,13 @@ public class ElementContent extends AppCompatActivity {
             TextView translatorTextView = findViewById(R.id.translator);
             titleTextView.setText(book.getTitle());
             authorTextView.setText(book.getAuthor());
-            pagesTextView.setText(String.valueOf(book.getPages()));
-            releasedTextView.setText(book.getReleased());
-            publishingHouseTextView.setText(book.getPublishingHouse());
-            genreTextView.setText(book.getGenre());
-            ratingTextView.setText(String.valueOf(book.getRating()));
-            numberOfRatingsTextView.setText(String.valueOf(book.getNumberOfRatings()));
-            translatorTextView.setText(book.getTranslator());
+            pagesTextView.setText("Strony: " + book.getPages());
+            releasedTextView.setText("Data wydania: " + book.getReleased());
+            publishingHouseTextView.setText("Wydawnictwo: " + book.getPublishingHouse());
+            genreTextView.setText("Gatunek: " + book.getGenre());
+            ratingTextView.setText("Ocena: " + book.getRating());
+            numberOfRatingsTextView.setText("Liczba ocen: " + book.getNumberOfRatings());
+            translatorTextView.setText("Tłumacz: " + book.getTranslator());
 
             imgView = (ImageView) findViewById(R.id.image);
             loadImage(book.getImage());

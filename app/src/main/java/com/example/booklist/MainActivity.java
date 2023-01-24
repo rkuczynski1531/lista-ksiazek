@@ -201,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             return retBuf.toString();
         }
     }
+
     public void onItemClick(int position) {
         Intent intent = new Intent(MainActivity.this, ElementContent.class);
 
