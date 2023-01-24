@@ -181,8 +181,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         }
     }
 
-
-    //This method will read data from FileInputStream
     private String readDataFromFile(FileInputStream fileInputStream) {
         StringBuffer retBuf = new StringBuffer();
         try {
